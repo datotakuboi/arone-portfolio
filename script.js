@@ -24,17 +24,19 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Intersection Observer for fade-in animations
+// Intersection Observer for fade-in animations with stagger effect
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(entry => {
+    entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }, index * 50);
         }
     });
 }, observerOptions);
@@ -72,9 +74,18 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Dark mode is always enabled
+// Parallax effect on hero section
+const hero = document.querySelector('.hero');
+if (hero) {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        if (scrolled < 1000) {
+            hero.style.backgroundPosition = `center ${scrolled * 0.5}px`;
+        }
+    });
+}
 
-// Enhanced project links
+// Enhanced project links with smooth transition
 const projectLinks = document.querySelectorAll('.project-link');
 projectLinks.forEach(link => {
     link.addEventListener('mouseenter', function () {
@@ -84,3 +95,16 @@ projectLinks.forEach(link => {
         this.style.gap = '0.5rem';
     });
 });
+
+// Card hover lift effect for project cards
+const cards = document.querySelectorAll('.project-card, .cert-item');
+cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px)';
+    });
+    card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+    });
+});
+
+// Dark mode is always enabled

@@ -2,9 +2,9 @@
 :root {
     --primary: #ffffff;
     --secondary: #1a2332;
-    --accent: #06b6d4;
-    --accent-light: #22d3ee;
-    --accent-dark: #0891b2;
+    --accent: #8CD8BD;
+    --accent-light: #A8E6D0;
+    --accent-dark: #00798A;
     --text-primary: #f8fafc;
     --text-secondary: #cbd5e1;
     --text-light: #94a3b8;
@@ -392,7 +392,7 @@ code {
     text-align: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     transition: var(--transition);
-    border: 1px solid var(--border);
+    border: 2px solid var(--accent);
 }
 
 .about-card:hover {
@@ -585,7 +585,7 @@ code {
     border-radius: 0.75rem;
     text-align: center;
     transition: var(--transition);
-    border: 2px solid transparent;
+    border: 2px solid var(--accent);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
@@ -897,6 +897,7 @@ code {
     transition: var(--transition);
     border: 2px solid transparent;
 }
+
 
 .social-link:hover {
     background: var(--accent);
