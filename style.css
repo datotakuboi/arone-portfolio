@@ -672,7 +672,13 @@ code {
     font-size: 0.9rem;
     font-weight: 500;
     transition: var(--transition);
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skill-logo {
+    font-size: 1.1rem;
 }
 
 .skill-tag:hover {
@@ -692,13 +698,32 @@ code {
 .project-card {
     background: var(--bg-white);
     border: 1px solid var(--border);
-    padding: var(--spacing-xl);
+    padding: 0;
     border-radius: 0.75rem;
     transition: var(--transition);
     display: flex;
     flex-direction: column;
     position: relative;
     overflow: hidden;
+}
+
+.project-preview {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.3s ease-out;
+}
+
+.project-card:hover .preview-image {
+    transform: scale(1.05);
 }
 
 .project-card::before {
@@ -743,6 +768,7 @@ code {
     align-items: flex-start;
     margin-bottom: var(--spacing-md);
     gap: var(--spacing-md);
+    padding: var(--spacing-xl);
 }
 
 .project-header h3 {
@@ -759,6 +785,7 @@ code {
 .project-card p {
     flex-grow: 1;
     margin-bottom: var(--spacing-md);
+    padding: 0 var(--spacing-xl);
 }
 
 .project-impact {
@@ -766,6 +793,7 @@ code {
     flex-wrap: wrap;
     gap: var(--spacing-sm);
     margin-bottom: var(--spacing-md);
+    padding: 0 var(--spacing-xl);
     padding-bottom: var(--spacing-md);
     border-bottom: 1px solid var(--border);
 }
@@ -784,6 +812,7 @@ code {
     flex-wrap: wrap;
     gap: var(--spacing-sm);
     margin-bottom: var(--spacing-md);
+    padding: 0 var(--spacing-xl);
 }
 
 .project-tech span {
@@ -802,6 +831,7 @@ code {
     align-items: center;
     gap: 0.5rem;
     transition: var(--transition);
+    padding: 0 var(--spacing-xl) var(--spacing-xl) var(--spacing-xl);
 }
 
 .project-link:hover {
