@@ -1,17 +1,17 @@
-/* ===== ROOT VARIABLES ===== */
+/* ===== ROOT VARIABLES (DARK MODE ONLY) ===== */
 :root {
-    --primary: #0f172a;
+    --primary: #ffffff;
     --secondary: #1a2332;
     --accent: #06b6d4;
     --accent-light: #22d3ee;
     --accent-dark: #0891b2;
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-light: #78909c;
-    --bg-light: #f0f9fa;
-    --bg-white: #ffffff;
-    --bg-dark: #0f1419;
-    --border: #cbd5e1;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-light: #94a3b8;
+    --bg-light: #0f172a;
+    --bg-white: #1e293b;
+    --bg-dark: #ffffff;
+    --border: #334155;
     --success: #10b981;
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
@@ -20,17 +20,6 @@
     --spacing-xl: 3rem;
     --spacing-2xl: 4rem;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Dark Mode */
-body.dark-mode {
-    --primary: #ffffff;
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --bg-white: #1e293b;
-    --bg-light: #0f172a;
-    --bg-dark: #ffffff;
-    --border: #334155;
 }
 
 /* ===== RESET ===== */
@@ -151,14 +140,10 @@ code {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(30, 41, 59, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     transition: var(--transition);
-}
-
-.dark-mode .navbar {
-    background: rgba(30, 41, 59, 0.95);
 }
 
 .nav-wrapper {
@@ -216,12 +201,8 @@ code {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #f0f9fa 0%, #ecf0f1 50%, #f5f7fa 100%);
-    padding: var(--spacing-2xl) 0;
-}
-
-.dark-mode .hero {
     background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #111827 100%);
+    padding: var(--spacing-2xl) 0;
 }
 
 .hero-content {
@@ -930,8 +911,8 @@ code {
 
 /* ===== FOOTER ===== */
 .footer {
-    background: var(--primary);
-    color: var(--bg-white);
+    background: var(--bg-light);
+    color: var(--text-primary);
     padding: var(--spacing-2xl) 0 var(--spacing-lg);
     margin-top: var(--spacing-2xl);
 }
@@ -950,7 +931,7 @@ code {
 
 .footer-section p,
 .footer-section a {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.8;
 }

@@ -16,10 +16,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+        navbar.style.background = 'rgba(30, 41, 59, 0.98)';
+        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.background = 'rgba(30, 41, 59, 0.95)';
         navbar.style.boxShadow = 'none';
     }
 });
@@ -72,30 +72,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Dark Mode Toggle
-const themeToggle = document.getElementById('themeToggle');
-const body = document.body;
-
-// Check for saved theme preference or default to 'light'
-const currentTheme = localStorage.getItem('theme') || 'light';
-if (currentTheme === 'dark') {
-    body.classList.add('dark-mode');
-    themeToggle.innerHTML = '<span>☀️</span>';
-}
-
-// Theme toggle event listener
-themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    
-    // Update theme in localStorage and toggle icon
-    if (body.classList.contains('dark-mode')) {
-        localStorage.setItem('theme', 'dark');
-        themeToggle.innerHTML = '<span>☀️</span>';
-    } else {
-        localStorage.setItem('theme', 'light');
-        themeToggle.innerHTML = '<span>🌙</span>';
-    }
-});
+// Dark mode is always enabled
 
 // Enhanced project links
 const projectLinks = document.querySelectorAll('.project-link');

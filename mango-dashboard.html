@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carabao Mango Sensor Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 100px auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .dashboard-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+
+        .dashboard-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .gallery-item {
+            background: var(--bg-white);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(6, 182, 212, 0.2);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .gallery-caption {
+            padding: var(--spacing-lg);
+        }
+
+        .gallery-caption h3 {
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .gallery-caption p {
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        .tech-stack {
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--border);
+        }
+
+        .tech-stack p {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .tech-tag {
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent);
+            padding: 0.35rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--accent);
+            margin-bottom: var(--spacing-2xl);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            color: var(--accent-light);
+            gap: var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-header h1 {
+                font-size: 2rem;
+            }
+
+            .gallery-caption {
+                padding: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html#hero">ACT</a>
+                </div>
+                <nav class="nav-menu">
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#experience">Experience</a>
+                    <a href="index.html#skills">Skills</a>
+                    <a href="index.html#projects">Projects</a>
+                    <a href="index.html#contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <a href="index.html#projects" class="back-link">
+            ← Back to Projects
+        </a>
+
+        <div class="dashboard-header">
+            <h1>🥭 Carabao Mango Sensor Dashboard</h1>
+            <p>IoT-based environmental monitoring system for carabao mango cultivation with real-time data visualization and predictive analytics</p>
+        </div>
+
+        <div class="gallery-grid">
+            <!-- Dashboard 1 -->
+            <div class="gallery-item">
+                <img src="images/carabao-mango.jpg" alt="Mango Sensor Dashboard - Main View" class="gallery-image">
+                <div class="gallery-caption">
+                    <h3>Dashboard Overview</h3>
+                    <p>Real-time monitoring of mango ripeness status with key metrics including chlorophyll levels, carotenoid content, and NIR values. The dashboard displays current scan status with timestamp updates.</p>
+                    <div class="tech-stack">
+                        <p>Features:</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Real-time Status</span>
+                            <span class="tech-tag">Key Metrics</span>
+                            <span class="tech-tag">Data Visualization</span>
+                            <span class="tech-tag">IoT Integration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard 2 -->
+            <div class="gallery-item">
+                <img src="images/carabao-mango2.jpg" alt="Mango Sensor Dashboard - Detailed Metrics" class="gallery-image">
+                <div class="gallery-caption">
+                    <h3>Detailed Metrics & History</h3>
+                    <p>Complete sensor data including chlorophyll, carotenoid, and NIR readings. The dashboard tracks sweetness levels and maintains a history of recent scans with accurate timestamps for quality control.</p>
+                    <div class="tech-stack">
+                        <p>Capabilities:</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Sensor Data</span>
+                            <span class="tech-tag">Analytics</span>
+                            <span class="tech-tag">Historical Tracking</span>
+                            <span class="tech-tag">Quality Assessment</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Details -->
+        <div style="background: var(--bg-white); border-radius: 0.75rem; border: 1px solid var(--border); padding: var(--spacing-2xl); margin-top: var(--spacing-2xl);">
+            <h2 style="color: var(--text-primary); margin-bottom: var(--spacing-lg);">Project Details</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-lg); margin-bottom: var(--spacing-xl);">
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: var(--spacing-sm);">📊 Sensors</h4>
+                    <p style="color: var(--text-secondary);">Environmental monitoring sensors for temperature, humidity, light intensity, and spectral analysis</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: var(--spacing-sm);">📈 Metrics</h4>
+                    <p style="color: var(--text-secondary);">Chlorophyll content, carotenoid levels, NIR readings, and sweetness assessment</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: var(--spacing-sm);">🔄 Real-time Updates</h4>
+                    <p style="color: var(--text-secondary);">Live dashboard updates with scan history and predictive ripeness indicators</p>
+                </div>
+            </div>
+
+            <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-md);">Tech Stack & Tools</h4>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-sm);">
+                <span class="tech-tag">IoT Sensors</span>
+                <span class="tech-tag">Data Collection</span>
+                <span class="tech-tag">Real-time Analytics</span>
+                <span class="tech-tag">Dashboard UI</span>
+                <span class="tech-tag">Database</span>
+                <span class="tech-tag">Spectral Analysis</span>
+            </div>
+
+            <div style="margin-top: var(--spacing-xl);">
+                <a href="https://github.com/datotakuboi/carabao-mango-sensor" target="_blank" class="btn btn-primary">
+                    <span>View on GitHub</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7m10 0v10"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Arone Titong</h4>
+                    <p>AI Software Developer | Building intelligent solutions</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#experience">Experience</a></li>
+                        <li><a href="index.html#projects">Projects</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://github.com/datotakuboi" target="_blank">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/arone-christian-titong-2a12aa307" target="_blank">LinkedIn</a></li>
+                        <li><a href="mailto:aronetitong@gmail.com">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Arone Christian V. Titong. Crafted with care.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
