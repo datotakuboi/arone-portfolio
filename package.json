@@ -1,0 +1,21 @@
+{
+  "name": "arone-portfolio-chatbot",
+  "version": "1.0.0",
+  "description": "AI-powered chatbot for Arone's portfolio",
+  "main": "index.html",
+  "dependencies": {
+    "@google/generative-ai": "^0.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "portfolio",
+    "chatbot",
+    "ai",
+    "gemini"
+  ],
+  "author": "Arone",
+  "license": "MIT"
+}
