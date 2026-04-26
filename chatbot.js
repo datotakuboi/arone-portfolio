@@ -81,11 +81,11 @@ class PortfolioChatbot {
                 }),
             });
 
-            if (!response.ok) {
-                throw new Error('Failed to get response');
-            }
-
             const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.details || data.error || 'Failed to get response');
+            }
 
             if (data.success && data.reply) {
                 // Add bot response to history and UI
@@ -102,10 +102,11 @@ class PortfolioChatbot {
             }
         } catch (error) {
             console.error('Chatbot error:', error);
-            this.addMessageToUI(
-                'Sorry, I\'m having trouble connecting right now. Please try again later or reach out directly at aronetitong@gmail.com',
-                'bot'
-            );
+            const fallbackMessage = error.message.includes('GEMINI_API_KEY')
+                ? 'The chatbot is not configured yet. Add GEMINI_API_KEY in Netlify, redeploy, and try again.'
+                : `Sorry, I hit an error: ${error.message}`;
+
+            this.addMessageToUI(fallbackMessage, 'bot');
         } finally {
             this.input.disabled = false;
             this.sendBtn.disabled = false;

@@ -1,7 +1,5 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-
 const systemPrompt = `You are an AI assistant representing Arone Christian V. Titong, an AI Software Developer. 
 Your role is to help visitors learn about Arone's experience, skills, and projects.
 
@@ -30,6 +28,15 @@ exports.handler = async (event) => {
   }
 
   try {
+    if (!process.env.GEMINI_API_KEY) {
+      return {
+        statusCode: 500,
+        body: JSON.stringify({
+          error: "Missing GEMINI_API_KEY environment variable",
+        }),
+      };
+    }
+
     const { message, conversationHistory } = JSON.parse(event.body);
 
     if (!message) {
@@ -39,13 +46,14 @@ exports.handler = async (event) => {
       };
     }
 
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     // Build conversation history
     let history = [];
     if (conversationHistory && Array.isArray(conversationHistory)) {
       history = conversationHistory.map((msg) => ({
-        role: msg.role,
+        role: msg.role === "assistant" ? "model" : "user",
         parts: [{ text: msg.content }],
       }));
     }
@@ -59,14 +67,19 @@ exports.handler = async (event) => {
       },
     });
 
-    const result = await chat.sendMessage(
-      `${systemPrompt}\n\nUser message: ${message}`
-    );
+    const prompt = history.length === 0
+      ? `${systemPrompt}\n\nUser message: ${message}`
+      : message;
+
+    const result = await chat.sendMessage(prompt);
     const response = await result.response;
     const text = response.text();
 
     return {
       statusCode: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         reply: text,
         success: true,
@@ -76,6 +89,9 @@ exports.handler = async (event) => {
     console.error("Gemini API error:", error);
     return {
       statusCode: 500,
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         error: "Failed to process message",
         details: error.message,
