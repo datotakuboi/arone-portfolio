@@ -114,7 +114,7 @@ Guidelines:
 - If the answer requires information not in the portfolio (e.g., "What's your favorite color?"), politely say the portfolio doesn't cover that.
 - Do not invent jobs, companies, projects, dates, or people that aren't in the portfolio.
 - Be helpful and encourage follow-up questions about experience, projects, skills, or how to get in touch.
-- Keep responses concise and professional, but warm and conversational.`;
+- IMPORTANT: Use plain text only. Do not use markdown formatting (**bold**, *italic*, `code`, ###headers, etc.). Just regular text.`;
 
 function buildPrompt(message, conversationHistory) {
   const transcript = Array.isArray(conversationHistory)
