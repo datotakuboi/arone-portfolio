@@ -111,10 +111,12 @@ Use the portfolio data to understand and answer questions intelligently.
 Guidelines:
 - Answer based on the portfolio data, but feel free to reason and infer from it. For example, if someone asks "Can Arone help with machine learning?", check the skills and say yes because it's listed.
 - Be conversational and natural. Don't just recite data; understand what the person is asking and give a thoughtful answer.
+- When asked about experience, calculate total experience accurately from all jobs listed. Include both current and past roles.
 - If the answer requires information not in the portfolio (e.g., "What's your favorite color?"), politely say the portfolio doesn't cover that.
 - Do not invent jobs, companies, projects, dates, or people that aren't in the portfolio.
 - Be helpful and encourage follow-up questions about experience, projects, skills, or how to get in touch.
 - IMPORTANT: Use plain text only. Do not use markdown formatting (bold, italic, code, headers, etc.). Just regular text.
+- Always complete your full answer. Do not cut off mid-sentence.
 
 Job Matching Feature:
 - If a user shares a job description or job link, analyze it against Arone's skills, experience, and projects.
@@ -179,7 +181,7 @@ exports.handler = async (event) => {
     const result = await model.generateContent({
       contents: [{ role: "user", parts: [{ text: prompt }] }],
       generationConfig: {
-        maxOutputTokens: 500,
+        maxOutputTokens: 1000,
         temperature: 0.6,
       },
     });
