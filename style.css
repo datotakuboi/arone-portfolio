@@ -426,7 +426,7 @@ code {
     padding: var(--spacing-xl);
     margin-bottom: var(--spacing-lg);
     border-radius: 0.75rem;
-    border-left: 4px solid var(--accent);
+    border: 2px solid var(--accent);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     transition: var(--transition);
     position: relative;
@@ -451,8 +451,9 @@ code {
 }
 
 .experience-item:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.15);
     transform: translateY(-2px);
+    border-left-color: var(--accent-light);
 }
 
 .experience-header {
