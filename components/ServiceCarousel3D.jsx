@@ -74,8 +74,8 @@ export default function ServiceCarousel3D({ cards, backgroundBlur = 0 }) {
             );
           })}
         </div>
-        <motion.button type="button" className="immersive-carousel-arrow left" onClick={handlePrevious} disabled={activeIndex === 0} whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.9 }} aria-label="Previous featured project"><ArrowLeft size={20} /></motion.button>
-        <motion.button type="button" className="immersive-carousel-arrow right" onClick={handleNext} disabled={activeIndex === cardCount - 1} whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.9 }} aria-label="Next featured project"><ArrowRight size={20} /></motion.button>
+        <button type="button" className="immersive-carousel-arrow left" onClick={handlePrevious} disabled={activeIndex === 0} aria-label="Previous featured project"><ArrowLeft size={20} /></button>
+        <button type="button" className="immersive-carousel-arrow right" onClick={handleNext} disabled={activeIndex === cardCount - 1} aria-label="Next featured project"><ArrowRight size={20} /></button>
       </div>
       <div className="immersive-carousel-dots" role="tablist" aria-label="Choose featured project">
         {cards.map((card, index) => <button type="button" role="tab" key={card.title} className={index === activeIndex ? 'is-active' : ''} onClick={() => goToCard(index)} aria-label={`Show ${card.title}`} aria-selected={index === activeIndex} />)}
