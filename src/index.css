@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+	.perspective-1000 {
+		perspective: 1000px;
+	}
+
+	.translate-z-10 {
+		transform: translateZ(20px);
+	}
+}
+
+:root {
+	font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+	color: #f8fafc;
+	background: #020617;
+}
+
+body {
+	margin: 0;
+	min-width: 320px;
+}
+
+.title-character-mask {
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: top;
+}
+
+.title-character-word {
+	display: inline-block;
+	white-space: nowrap;
+}
+
+.title-character {
+	display: inline-block;
+}
+
+.immersive-card-image {
+	overflow: hidden;
+	will-change: clip-path;
+}
+
+.immersive-card-image img {
+	will-change: transform;
+}
+

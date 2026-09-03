@@ -51,12 +51,16 @@ python -m http.server 8000
 http://localhost:8000
 ```
 
+### React Bits Components
+
+The main page follows the React Bits source-first approach: `GlassCard.jsx` is a local, editable interaction component used by the featured-project carousel. The carousel combines Framer Motion spring transitions, drag/swipe navigation, keyboard arrow controls, and accessible project indicators. Components are kept in the project rather than imported as a large UI package.
+
 ## 🎨 Technologies Used
 
-- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
+ - **Frontend**: HTML5, CSS3, JavaScript (Vanilla), React
 - **Design**: Responsive CSS Grid & Flexbox
 - **Fonts**: Google Fonts (Inter, Inconsolata)
-- **Animations**: CSS Keyframes & Transitions
+ - **Animations**: CSS Keyframes, Transitions & Framer Motion spring physics
 - **Storage**: LocalStorage for theme persistence
 
 ## 📋 Sections
