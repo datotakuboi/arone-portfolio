@@ -23,6 +23,31 @@ body {
 	min-width: 320px;
 }
 
+.skip-link {
+	position: fixed;
+	top: 0.75rem;
+	left: 50%;
+	z-index: 5000;
+	padding: 0.7rem 1rem;
+	color: var(--paper);
+	background: var(--acid);
+	font-family: 'Space Grotesk', sans-serif;
+	font-size: 0.8rem;
+	font-weight: 700;
+	text-decoration: none;
+	transform: translate(-50%, -160%);
+	transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+	transform: translate(-50%, 0);
+}
+
+:focus-visible {
+	outline: 3px solid var(--acid);
+	outline-offset: 4px;
+}
+
 .portfolio-skeleton {
 	min-height: 100vh;
 	padding: 1.25rem clamp(1.25rem, 6vw, 6rem) 4rem;

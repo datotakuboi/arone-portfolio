@@ -1552,10 +1552,11 @@ p {
     min-height: 175px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
     padding: 1.25rem;
-    text-align: left;
+    text-align: center;
     background: rgba(255, 255, 255, 0.055);
     border: 0;
 }
@@ -1571,11 +1572,13 @@ p {
 }
 
 .cert-item h4 {
+    margin: 0;
     font-size: 0.92rem;
     line-height: 1.3;
 }
 
 .cert-item p {
+    margin: 0;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.7rem;
     letter-spacing: 0.06em;
@@ -2005,4 +2008,16 @@ body {
     .hero-image {
         width: 100%;
     }
+}
+
+.contact-icon img {
+    display: block;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    filter: none;
+}
+
+.contact-icon {
+    filter: none;
 }

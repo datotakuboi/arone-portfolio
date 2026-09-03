@@ -1,23 +1,16 @@
 import { useEffect, useState } from 'react';
 
-export default function PortfolioSkeleton({ images, children }) {
+export default function PortfolioSkeleton({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let active = true;
-    const preloadImage = (source) => new Promise((resolve) => {
-      const image = new Image();
-      image.onload = resolve;
-      image.onerror = resolve;
-      image.src = source;
-    });
-
-    Promise.all(images.map(preloadImage)).then(() => {
+    const timer = window.setTimeout(() => {
       if (active) setLoading(false);
-    });
+    }, 350);
 
-    return () => { active = false; };
-  }, [images]);
+    return () => { active = false; window.clearTimeout(timer); };
+  }, []);
 
   if (!loading) return children;
 

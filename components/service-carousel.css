@@ -72,6 +72,63 @@
   object-fit: cover;
 }
 
+.project-image-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--paper-deep);
+}
+
+.project-image-frame img {
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.project-image-frame.is-loaded img {
+  opacity: 1;
+}
+
+.project-image-skeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, #26312c 30%, #354139 45%, #26312c 60%);
+  background-size: 260% 100%;
+  animation: project-skeleton-shimmer 1.3s ease-in-out infinite;
+}
+
+.project-image-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  color: var(--muted-ink);
+  background: var(--paper-deep);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@keyframes project-skeleton-shimmer {
+  to { background-position: -160% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-image-frame img,
+  .immersive-card-inner,
+  .immersive-carousel-arrow,
+  .immersive-carousel-dots button {
+    transition: none;
+  }
+
+  .project-image-skeleton {
+    animation: none;
+  }
+}
+
 .immersive-card-content {
   position: relative;
   z-index: 1;

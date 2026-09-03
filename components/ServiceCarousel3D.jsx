@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState, startTransition } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
+import ProjectImage from './ProjectImage';
 import './service-carousel.css';
 
 const spring = { stiffness: 300, damping: 30, mass: 1.2 };
@@ -68,7 +69,7 @@ export default function ServiceCarousel3D({ cards, backgroundBlur = 0 }) {
                 dragElastic={0.12}
                 style={{ filter: isActive ? 'none' : `blur(${Math.min(distance * backgroundBlur, 0)}px)` }}
               >
-                <ProjectCard card={card} active={isActive} />
+                <ProjectCard card={card} active={isActive} eager={index === activeIndex} />
               </motion.article>
             );
           })}
@@ -91,10 +92,10 @@ function getCardStyle(distance, direction) {
   return { x: direction * fixedOffset, y: 60, scale: 0.6, opacity: 1, zIndex: 1 };
 }
 
-function ProjectCard({ card, active }) {
+function ProjectCard({ card, active, eager }) {
   return (
     <div className={`immersive-card-inner${active ? ' is-active' : ''}`}>
-      <div className="immersive-card-image"><img src={card.image} alt={card.title} /></div>
+      <div className="immersive-card-image"><ProjectImage src={card.image} alt={card.title} eager={eager} /></div>
       <div className="immersive-card-content">
         <span className="immersive-card-category">{card.category}</span>
         <p className="immersive-card-year">{card.year}</p>
