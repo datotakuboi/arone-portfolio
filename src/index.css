@@ -23,27 +23,51 @@ body {
 	min-width: 320px;
 }
 
-.title-character-mask {
-	display: inline-block;
-	overflow: hidden;
-	vertical-align: top;
+.portfolio-skeleton {
+	min-height: 100vh;
+	padding: 1.25rem clamp(1.25rem, 6vw, 6rem) 4rem;
+	color: #f3f1e9;
+	background: #17211d;
 }
 
-.title-character-word {
-	display: inline-block;
-	white-space: nowrap;
+.skeleton-header,
+.skeleton-hero-grid,
+.skeleton-cards {
+	display: grid;
+	gap: clamp(1.2rem, 4vw, 4rem);
 }
 
-.title-character {
-	display: inline-block;
+.skeleton-header {
+	grid-template-columns: 1fr auto;
+	align-items: center;
 }
 
-.immersive-card-image {
-	overflow: hidden;
-	will-change: clip-path;
+.skeleton-hero {
+	max-width: 980px;
+	padding: clamp(5rem, 13vw, 11rem) 0 4rem;
 }
 
-.immersive-card-image img {
-	will-change: transform;
+.skeleton-line,
+.skeleton-block {
+	display: block;
+	background: linear-gradient(105deg, #26312c 30%, #354139 45%, #26312c 60%);
+	background-size: 260% 100%;
+	animation: skeleton-shimmer 1.3s ease-in-out infinite;
+}
+
+.skeleton-logo { width: 2.5rem; height: 2.5rem; border-radius: 50%; }
+.skeleton-nav { width: 14rem; height: 2.4rem; border-radius: 999px; }
+.skeleton-eyebrow { width: 15rem; height: .7rem; margin-bottom: 2.3rem; }
+.skeleton-title { width: min(100%, 50rem); height: clamp(3.4rem, 8vw, 7rem); margin-bottom: 1rem; }
+.skeleton-title-short { width: 62%; }
+.skeleton-hero-grid { grid-template-columns: 1fr minmax(220px, 370px); margin-top: 4rem; }
+.skeleton-copy { width: 90%; height: 1rem; margin-bottom: .85rem; }.skeleton-copy-short { width: 64%; }.skeleton-button { width: 9rem; height: 2.8rem; margin-top: 2.2rem; }
+.skeleton-profile { min-height: 20rem; }
+.skeleton-section { padding-top: 3rem; }.skeleton-heading { width: 19rem; height: 2.1rem; margin-bottom: 1.8rem; }.skeleton-cards { grid-template-columns: repeat(3, 1fr); }.skeleton-cards .skeleton-block { min-height: 12rem; }
+
+@keyframes skeleton-shimmer { to { background-position: -160% 0; } }
+
+@media (max-width: 700px) {
+	.skeleton-nav { width: 7rem; }.skeleton-hero-grid, .skeleton-cards { grid-template-columns: 1fr; }.skeleton-profile { min-height: 15rem; }.skeleton-cards .skeleton-block:not(:first-child) { display: none; }
 }
 

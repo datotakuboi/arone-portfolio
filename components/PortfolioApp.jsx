@@ -1,7 +1,7 @@
 import ServiceCarousel3D from './ServiceCarousel3D';
 import Chatbot from './Chatbot';
 import FloatingPillNavigation from './FloatingPillNavigation';
-import HomeMotion from './HomeMotion';
+import PortfolioSkeleton from './PortfolioSkeleton';
 import simplabotsImage from '../images/simplabots-preview.jpg';
 import marciImage from '../images/marci-metzger-preview.jpg';
 import chatbotImage from '../images/ai-chatbot.png';
@@ -34,8 +34,7 @@ const experiences = [
 const certifications = [['🏆', 'AI Hackathon 3rd Place', '2024'], ['⭐', 'Starknet Winter Hackathon Participant', '2024'], ['📚', 'Analysis and Algorithms', '2025'], ['🤖', 'Azure AI Foundry', 'Building AI Agents and Apps · 2025'], ['📜', 'Certificate of Attendance', '2024']];
 
 export default function PortfolioApp() {
-  return <>
-    <HomeMotion />
+  return <PortfolioSkeleton images={[profileImage, ...projects.map((project) => project.image)]}>
     <FloatingPillNavigation />
     <section id="hero" className="hero"><div className="container"><div className="hero-content"><div className="hero-text"><span className="hero-subtitle">A workspace for intelligent things</span><h1 className="hero-title"><span className="text-highlight">Arone Christian V. Titong</span></h1><p className="hero-role">AI Software Developer</p><p className="hero-description">Explore AI products, interfaces, and experiments engineered by Arone Titong. Creating intelligent solutions with Next.js, Python, and React.</p><div className="hero-cta"><a href="#contact" className="btn btn-primary"><span>Get In Touch</span><span aria-hidden="true">→</span></a><a href="#projects" className="btn btn-secondary">View My Work</a></div><div className="hero-stats"><div className="stat"><span className="stat-value">5+</span><span className="stat-label">Projects</span></div><div className="stat"><span className="stat-value">2+</span><span className="stat-label">Years</span></div><div className="stat"><span className="stat-value">40+</span><span className="stat-label">Skills</span></div></div></div><div className="hero-image"><div className="image-wrapper"><img src={profileImage} alt="Arone Christian V. Titong" className="profile-photo" /><div className="image-badge">Available for work</div></div></div></div></div></section>
     <section id="projects" className="section"><div className="container"><h2 className="section-title">Featured Projects</h2><ServiceCarousel3D cards={projects} /></div></section>
@@ -46,7 +45,7 @@ export default function PortfolioApp() {
     <section id="contact" className="section alt-bg"><div className="container"><h2 className="section-title">Let's Work Together</h2><div className="contact-content"><p className="contact-intro">Have a product, workflow, or ambitious idea that needs a thoughtful technical partner?</p><div className="contact-grid"><ContactItem icon="📧" title="Email" value="aronetitong@gmail.com" href="https://mail.google.com/mail/?view=cm&fs=1&to=aronetitong@gmail.com" /><ContactItem icon="📱" title="Phone (PH)" value="+63 997 682 8086" href="tel:+639976828086" /><ContactItem icon="📍" title="Location" value="Cebu City, Philippines" /><ContactItem icon="💼" title="LinkedIn" value="Connect with me" href="https://www.linkedin.com/in/arone-christian-titong-2a12aa307" /><ContactItem icon="💻" title="GitHub" value="@datotakuboi" href="https://github.com/datotakuboi" /></div><div className="contact-cta"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=aronetitong@gmail.com" target="_blank" rel="noreferrer" className="btn btn-primary btn-large"><span>Start a conversation</span><span aria-hidden="true">→</span></a></div></div></div></section>
     <footer className="footer"><div className="container"><div className="footer-content"><div className="footer-section"><h4>Arone Titong</h4><p>AI Software Developer · Building intelligent solutions</p></div><div className="footer-section"><h4>Explore</h4><ul><li><a href="#projects">Projects</a></li><li><a href="#experience">Experience</a></li><li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li></ul></div><div className="footer-section"><h4>Connect</h4><ul><li><a href="https://github.com/datotakuboi" target="_blank" rel="noreferrer">GitHub</a></li><li><a href="https://www.linkedin.com/in/arone-christian-titong-2a12aa307" target="_blank" rel="noreferrer">LinkedIn</a></li><li><a href="mailto:aronetitong@gmail.com">Email</a></li></ul></div></div><div className="footer-bottom"><p>© 2026 Arone Christian V. Titong. Crafted with care.</p></div></div></footer>
     <Chatbot />
-  </>;
+  </PortfolioSkeleton>;
 }
 
 function ContactItem({ icon, title, value, href }) {
