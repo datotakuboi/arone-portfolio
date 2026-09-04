@@ -15,8 +15,20 @@ export default function PortfolioSkeleton({ children }) {
   if (!loading) return children;
 
   return <main className="portfolio-skeleton" aria-busy="true" aria-label="Loading portfolio">
-    <header className="skeleton-header"><span className="skeleton-line skeleton-logo" /><span className="skeleton-line skeleton-nav" /></header>
-    <section className="skeleton-hero"><span className="skeleton-line skeleton-eyebrow" /><span className="skeleton-line skeleton-title" /><span className="skeleton-line skeleton-title skeleton-title-short" /><div className="skeleton-hero-grid"><div><span className="skeleton-line skeleton-copy" /><span className="skeleton-line skeleton-copy skeleton-copy-short" /><span className="skeleton-line skeleton-button" /></div><span className="skeleton-block skeleton-profile" /></div></section>
-    <section className="skeleton-section"><span className="skeleton-line skeleton-heading" /><div className="skeleton-cards"><span className="skeleton-block" /><span className="skeleton-block" /><span className="skeleton-block" /></div></section>
+    <div className="skeleton-nav"><span /><span /><span /><span /><span /><span /></div>
+    <section className="skeleton-hero">
+      <div className="skeleton-container skeleton-hero-content">
+        <div className="skeleton-hero-text">
+          <span className="skeleton-line skeleton-subtitle" />
+          <span className="skeleton-line skeleton-title" />
+          <span className="skeleton-line skeleton-role" />
+          <div className="skeleton-description"><span className="skeleton-line skeleton-copy" /><span className="skeleton-line skeleton-copy skeleton-copy-short" /></div>
+          <div className="skeleton-actions"><span className="skeleton-line" /><span className="skeleton-line" /></div>
+          <div className="skeleton-stats"><span className="skeleton-line" /><span className="skeleton-line" /><span className="skeleton-line" /></div>
+        </div>
+        <div className="skeleton-hero-image"><span className="skeleton-block skeleton-profile" /></div>
+      </div>
+    </section>
+    <section className="skeleton-section"><div className="skeleton-container"><span className="skeleton-line skeleton-heading" /><div className="skeleton-cards"><span className="skeleton-block" /><span className="skeleton-block" /><span className="skeleton-block" /></div></div></section>
   </main>;
 }

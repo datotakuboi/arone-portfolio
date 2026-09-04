@@ -1048,7 +1048,8 @@ p {
     position: relative;
     align-self: stretch;
     display: flex;
-    align-items: end;
+    align-items: flex-start;
+    padding-top: 8.2rem;
 }
 
 .image-wrapper {
@@ -1320,6 +1321,7 @@ p {
     .hero-image {
         width: 88%;
         margin-left: auto;
+        padding-top: 0;
     }
 
     .profile-photo {
