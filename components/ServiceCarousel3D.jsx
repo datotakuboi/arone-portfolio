@@ -13,7 +13,7 @@ export default function ServiceCarousel3D({ cards, backgroundBlur = 0 }) {
   const cardCount = cards.length;
 
   const goToCard = useCallback((index) => {
-    const nextIndex = Math.max(0, Math.min(cardCount - 1, index));
+    const nextIndex = (index + cardCount) % cardCount;
     startTransition(() => setActiveIndex(nextIndex));
   }, [cardCount]);
 
@@ -47,17 +47,19 @@ export default function ServiceCarousel3D({ cards, backgroundBlur = 0 }) {
       <div className="immersive-carousel-stage">
         <div className="immersive-carousel-track">
           {cards.map((card, index) => {
-            const distance = Math.abs(index - activeIndex);
-            const direction = index - activeIndex;
-            const cardStyle = getCardStyle(distance, direction);
+            const position = getCircularPosition(index, activeIndex, cardCount);
+            const distance = Math.abs(position);
+            const isVisible = distance <= 2;
+            const cardStyle = getCardStyle(distance, position, isVisible);
             const isActive = index === activeIndex;
             return (
               <motion.article
                 key={card.title}
                 className={`immersive-carousel-card${isActive ? ' is-active' : ''}`}
                 role="button"
-                tabIndex="0"
+                tabIndex={isActive ? 0 : -1}
                 aria-label={`${card.title}${isActive ? ' - Active project' : ' - View project'}`}
+                aria-hidden={!isVisible}
                 animate={cardStyle}
                 transition={{ type: 'spring', ...spring }}
                 onClick={() => { if (!isActive && !isDragging) goToCard(index); }}
@@ -74,8 +76,8 @@ export default function ServiceCarousel3D({ cards, backgroundBlur = 0 }) {
             );
           })}
         </div>
-        <button type="button" className="immersive-carousel-arrow left" onClick={handlePrevious} disabled={activeIndex === 0} aria-label="Previous featured project"><ArrowLeft size={20} /></button>
-        <button type="button" className="immersive-carousel-arrow right" onClick={handleNext} disabled={activeIndex === cardCount - 1} aria-label="Next featured project"><ArrowRight size={20} /></button>
+        <button type="button" className="immersive-carousel-arrow left" onClick={handlePrevious} disabled={cardCount <= 1} aria-label="Previous featured project"><ArrowLeft size={20} /></button>
+        <button type="button" className="immersive-carousel-arrow right" onClick={handleNext} disabled={cardCount <= 1} aria-label="Next featured project"><ArrowRight size={20} /></button>
       </div>
       <div className="immersive-carousel-dots" role="tablist" aria-label="Choose featured project">
         {cards.map((card, index) => <button type="button" role="tab" key={card.title} className={index === activeIndex ? 'is-active' : ''} onClick={() => goToCard(index)} aria-label={`Show ${card.title}`} aria-selected={index === activeIndex} />)}
@@ -84,12 +86,19 @@ export default function ServiceCarousel3D({ cards, backgroundBlur = 0 }) {
   );
 }
 
-function getCardStyle(distance, direction) {
-  const fixedOffset = 180;
+function getCircularPosition(index, activeIndex, cardCount) {
+  const forward = (index - activeIndex + cardCount) % cardCount;
+  if (forward < cardCount / 2) return forward;
+  if (forward > cardCount / 2) return forward - cardCount;
+  return index > activeIndex ? forward : forward - cardCount;
+}
+
+function getCardStyle(distance, direction, visible) {
+  const fixedOffset = 160;
+  if (!visible) return { x: direction * fixedOffset, y: 60, scale: 0.55, opacity: 0, zIndex: 0, pointerEvents: 'none' };
   if (distance === 0) return { x: 0, y: 0, scale: 1, opacity: 1, zIndex: 10 };
   if (distance === 1) return { x: direction * fixedOffset, y: 20, scale: 0.85, opacity: 1, zIndex: 5 };
-  if (distance === 2) return { x: direction * fixedOffset, y: 40, scale: 0.7, opacity: 1, zIndex: 3 };
-  return { x: direction * fixedOffset, y: 60, scale: 0.6, opacity: 1, zIndex: 1 };
+  return { x: direction * fixedOffset, y: 40, scale: 0.7, opacity: 1, zIndex: 3 };
 }
 
 function ProjectCard({ card, active, eager }) {
